@@ -16,14 +16,14 @@
 		}
 	}
 }
-{ OFS = "\t"; w = 20 }
+{ OFS = "\t"; w = 22 }
 END {
 	for (i = 1; i <= max_fnr; ++i) {
 		for (j = 1; j <= max_nf; ++j) {
 			if (i > 1 && j > 1) {
-				$j = sprintf("%-20s", values[i, j] / nfiles)
+				$j = sprintf("%-*s", w, values[i, j] / nfiles)
 			} else {
-				$j = sprintf("%-20s", values[i, j])
+				$j = sprintf("%-*s", w, values[i, j])
 			}
 		}
 		print

@@ -7,6 +7,9 @@ systemctl start httpd
 # start cron service
 systemctl start crond
 
+# install sysstat needed for cpu stats
+yum install -y sysstat
+
 # create a directory for the collected stats
 mkdir ~/stats/
 

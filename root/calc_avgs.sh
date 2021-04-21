@@ -10,7 +10,7 @@ if [ $(ls ~/stats/cpu.* | wc -w) -lt 24 ]; then
 	echo "No enough stats." >> $cpu
 elif
 	# get the last 24 records and calculates the average
-	~/calc_avgs.awk $(ls -lt ~/stats/cpu.* | tail -n +2 | head -n 24 | awk '{print $9}') >> $cpu
+	~/calc_avgs.awk $(ls -t ~/stats/cpu.* | head -n 24) >> $cpu
 fi
 
 # fill the footer part
@@ -26,7 +26,7 @@ if [ $(ls ~/stats/mem.* | wc -w) -lt 24 ]; then
 	echo "No enough stats." >> $mem
 elif
 	# get the last 24 records and calculates the average
-	~/calc_avgs.awk $(ls -lt ~/stats/mem.* | tail -n +2 | head -n 24 | awk '{print $9}') >> $mem
+	~/calc_avgs.awk $(ls -t ~/stats/mem.* | head -n 24) >> $mem
 fi
 
 # fill the footer part
@@ -42,7 +42,7 @@ if [ $(ls ~/stats/disk.* | wc -w) -lt 24 ]; then
 	echo "No enough stats." >> $disk
 elif
 	# get the last 24 records and calculates the average
-	~/calc_avgs.awk $(ls -lt ~/stats/disk.* | tail -n +2 | head -n 24 | awk '{print $9}') >> $disk
+	~/calc_avgs.awk $(ls -t ~/stats/disk.* | head -n 24) >> $disk
 fi
 
 # fill the footer part
